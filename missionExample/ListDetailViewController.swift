@@ -8,16 +8,28 @@
 
 import UIKit
 
-class ListDetailViewControllerTableViewController: UITableViewController {
+protocol ListDetailViewControllerDelegate {
+    func listDetailViewControllerDidCancel(controller:ListDetailViewController)
+    func listDetailViewController(controller:ListDetailViewController, FinishAddingChecklist checklist:Checklist)
+    func listDetailViewController(controller:ListDetailViewController, FinishEditingChecklist checklist:Checklist)
+}
 
+class ListDetailViewController: UITableViewController,UITextFieldDelegate {
+
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var textField: UITextField!
+    
+    var delegate:ListDetailViewControllerDelegate?
+    var checklistToEdit: Checklist?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if (checklistToEdit != nil) {
+            self.title = "Edit Checklist"
+            textField.text = checklistToEdit?.name
+            doneButton.isEnabled = true
+        }
+        textField.delegate = self
     }
 
     // MARK: - Table view data source
