@@ -8,26 +8,15 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 class AllListViewController: UITableViewController, ListDetailViewControllerDelegate {
 
-    var dataModel:DataModel?
+    var dataModel:DataModel? = DataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        onCreateDate()
-        loadChecklistItems()
-    }
-    
-    func onCreateDate(){
-        for i in 0...4 {
-            let item = Checklist(name:"任務類別:\(i)")
-            dataModel!.lists.append(item)
-        }
+        dataModel?.loadChecklistItems()
     }
     // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return  dataModel!.lists.count
@@ -57,9 +46,10 @@ class AllListViewController: UITableViewController, ListDetailViewControllerDele
         tableView.deleteRows(at: [indexPath], with: .automatic)
         dataModel!.saveCheckLists()
     }
+    
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let navgationController = self.storyboard!.instantiateViewController(identifier: "ListNavigationController") as! UINavigationController
-        let controller = navigationController?.topViewController as! ListDetailViewController
+        let controller = navgationController.topViewController as! ListDetailViewController
         controller.delegate = self
         // 取得選取行資料
         let checklist = dataModel!.lists[indexPath.row]
@@ -96,7 +86,7 @@ class AllListViewController: UITableViewController, ListDetailViewControllerDele
             let unarchiver = try! NSKeyedUnarchiver(forReadingWith: data! as Data)
             
             // 透過歸檔時設定的關鍵字ChecklistItems還原arrData
-            dataModel!.lists = unarchiver.decodeObject(forKey: "Checklist") as! Array
+            dataModel?.lists = unarchiver.decodeObject(forKey: "Checklist") as! Array
             // 結束解碼
             unarchiver.finishDecoding()
         } else {

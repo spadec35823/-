@@ -9,7 +9,7 @@
 import UIKit
 
 class Checklist: NSObject , NSCoding {
-    var name:String = ""
+    var name: String = ""
     var items = [MainItem]()
     
     init(name:String) {

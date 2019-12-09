@@ -36,12 +36,28 @@ class ListDetailViewController: UITableViewController,UITextFieldDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
+    
+    @IBAction func cancel(_ sender: Any) {
+        delegate?.listDetailViewControllerDidCancel(controller: self)
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        if (self.checklistToEdit == nil) {
+            let checklist = Checklist(name: textField.text!)
+            delegate?.listDetailViewController(controller: self, FinishAddingChecklist: checklist)
+        } else {
+            checklistToEdit?.name = self.textField.text!
+            delegate?.listDetailViewController(controller: self, FinishEditingChecklist: checklistToEdit!)
+        }
+    }
+    
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
     /*

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooa-Aq-A3x">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wO9-kd-imo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826.0869565217392" y="40.848214285714285"/>
+            <point key="canvasLocation" x="1812" y="-263"/>
         </scene>
         <!--MainListController-->
         <scene sceneID="gwn-SZ-tt1">
@@ -100,8 +99,8 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="iyP-Fi-ZJP" secondAttribute="bottom" id="8DW-Za-pIW"/>
-                                                <constraint firstAttribute="trailing" secondItem="iyP-Fi-ZJP" secondAttribute="trailing" constant="20" id="Pgj-85-4fD"/>
+                                                <constraint firstAttribute="bottom" secondItem="iyP-Fi-ZJP" secondAttribute="bottom" constant="4.5" id="8DW-Za-pIW"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iyP-Fi-ZJP" secondAttribute="trailing" constant="20" symbolic="YES" id="Pgj-85-4fD"/>
                                                 <constraint firstItem="iyP-Fi-ZJP" firstAttribute="top" secondItem="nsh-qb-3c3" secondAttribute="top" id="mZb-z3-0Lg"/>
                                                 <constraint firstItem="iyP-Fi-ZJP" firstAttribute="leading" secondItem="nsh-qb-3c3" secondAttribute="leading" constant="20" id="sSx-Ng-emI"/>
                                             </constraints>
@@ -134,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxy-TF-bzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3671.0144927536235" y="40.848214285714285"/>
+            <point key="canvasLocation" x="3736" y="-263"/>
         </scene>
         <!--增加任務類型-->
         <scene sceneID="71u-kU-QNB">
@@ -156,17 +155,15 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填寫任務類型名稱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIk-XS-Mk0">
                                                     <rect key="frame" x="20" y="5" width="374" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="cIk-XS-Mk0" secondAttribute="height" multiplier="11:1" id="Ixk-gE-fgH"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="cIk-XS-Mk0" secondAttribute="trailing" constant="20" id="Qrj-h7-sGt"/>
-                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="leading" secondItem="vqq-Ff-adh" secondAttribute="leading" constant="20" id="ic3-89-xpW"/>
-                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="centerY" secondItem="vqq-Ff-adh" secondAttribute="centerY" id="wMA-Uq-azx"/>
+                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="centerY" secondItem="vqq-Ff-adh" secondAttribute="centerY" id="2Z6-JV-bhf"/>
+                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="top" secondItem="vqq-Ff-adh" secondAttribute="topMargin" constant="-6" id="9Wc-LM-AuP"/>
+                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="leading" secondItem="vqq-Ff-adh" secondAttribute="leadingMargin" id="FM7-k5-BQK"/>
+                                                <constraint firstItem="cIk-XS-Mk0" firstAttribute="trailing" secondItem="vqq-Ff-adh" secondAttribute="trailingMargin" id="gbj-kM-ejn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -179,10 +176,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="增加任務類型" id="XVc-d0-z77">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1e9-MO-LTt"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="cmL-yj-cS7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1e9-MO-LTt">
                             <connections>
-                                <segue destination="KLj-Qt-F8t" kind="presentation" identifier="AddChecklist" id="udV-o0-1FO"/>
+                                <action selector="cancel:" destination="jIY-al-LZx" id="Fii-ui-8PT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cmL-yj-cS7">
+                            <connections>
+                                <action selector="done:" destination="jIY-al-LZx" id="vhm-5c-Ufx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -193,7 +194,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Auj-CE-Ryq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3671" y="761"/>
+            <point key="canvasLocation" x="2746" y="483"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cGn-kt-TrD">
@@ -201,6 +202,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ooa-Aq-A3x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FZs-kq-4hI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -255,12 +257,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="KLj-Qt-F8t" kind="relationship" relationship="rootViewController" id="xpu-MS-JDC"/>
+                        <segue destination="KLj-Qt-F8t" kind="relationship" relationship="rootViewController" id="Q4l-Ya-le6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCW-EA-Bou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2760.8695652173915" y="40.848214285714285"/>
+            <point key="canvasLocation" x="2746" y="-263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7uk-fB-323">
@@ -268,6 +270,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s4h-0r-efe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vXh-Pe-YvP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -285,6 +288,7 @@
                 <navigationController storyboardIdentifier="ListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="I6c-L4-4RP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7LL-1b-p9p">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -294,11 +298,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irc-Rr-7CJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="761"/>
+            <point key="canvasLocation" x="1836" y="483"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cvD-Qw-Fs6"/>
-        <segue reference="udV-o0-1FO"/>
     </inferredMetricsTieBreakers>
 </document>

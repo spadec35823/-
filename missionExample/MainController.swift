@@ -66,12 +66,16 @@ class MainController: UITableViewController, MainListControllerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segueStr = "\(segue.identifier!)"
-        let navigationController = segue.destination as! UINavigationController
-        let controller = navigationController.topViewController as! MainListController
-        controller.delegate = self
         if (segueStr == "AddItem") {
             
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! MainListController
+            controller.delegate = self
         } else if (segueStr == "EditItem") {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! MainListController
+            controller.delegate = self
             let indexPath = self.tableView.indexPath(for: sender! as! UITableViewCell)
             controller.itemToEdit = checklist!.items[indexPath!.row]
         }

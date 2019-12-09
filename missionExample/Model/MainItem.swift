@@ -10,9 +10,10 @@ import UIKit
 
 class MainItem: NSObject, NSCoding {
     // cell標題
-    var text:String?
+    var text:String? = ""
     // cell選取屬性
-    var checked:Bool?
+    var checked:Bool? = false
+        
     // 構造方法
     init(text:String, checked:Bool){
         self.text = text
